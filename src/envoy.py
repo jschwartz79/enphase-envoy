@@ -66,7 +66,7 @@ class Envoy(object):
             if len(element.getchildren()) == 1:
                 continue
             k, v = element.getchildren()
-            self._system_production_stats[k.text] = v.text
+            self._system_production_stats[k.text.strip()] = v.text.strip()
 
     def _format_quantity_unit(self, data):
         m = re.search('([0-9.]+) (\w+)', data)
